@@ -15,7 +15,7 @@ public class CorsConfig {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/**")
-                        .allowedOrigins("*")
+                        .allowedOrigins("https://bigwhale-6dd603a7a811.herokuapp.com/")
                         .allowedMethods("*")
                         .allowedHeaders("*")
                         .allowCredentials(true);
