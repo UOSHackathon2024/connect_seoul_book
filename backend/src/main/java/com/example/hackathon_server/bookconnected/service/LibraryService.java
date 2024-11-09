@@ -10,9 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import java.sql.Time;
-import java.time.DayOfWeek;
-import java.time.LocalDate;
-import java.time.LocalTime;
+import java.time.*;
 import java.util.*;
 
 @Slf4j
@@ -38,8 +36,9 @@ public class LibraryService {
             Map<String, Object> data = new HashMap<>();
             data.put("library_info",library);
 
-            LocalDate today = LocalDate.now();
-            LocalTime now = LocalTime.now();
+            ZonedDateTime nowInKST = ZonedDateTime.now(ZoneId.of("Asia/Seoul"));
+            LocalDate today = nowInKST.toLocalDate();
+            LocalTime now = nowInKST.toLocalTime();
 
             LocalTime startTime;
             LocalTime endTime;

@@ -16,7 +16,7 @@ import java.sql.Time;
 public class Library {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long libraryId;
+    private Integer libraryId;
 
     @Column
     private String libraryName;
