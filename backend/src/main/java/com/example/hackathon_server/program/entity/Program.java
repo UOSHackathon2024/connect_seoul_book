@@ -39,13 +39,10 @@ public class Program {
     private Date acceptEnd;
 
     @Column
-    private String category;
-
-    @Column
-    private String days;
-
-    @Column
     private String clientType;
+
+    @Column
+    private String category;
 
     @Column
     private String programPlace;
@@ -55,4 +52,7 @@ public class Program {
 
     @Column
     private String imageUrl;
+
+    @Column
+    private String programUrl;
 }
