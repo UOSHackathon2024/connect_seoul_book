@@ -25,7 +25,7 @@ public class LibraryController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<?> getLibraryById(@PathVariable Long id) {
+    public ResponseEntity<?> getLibraryById(@PathVariable(name = "id") Long id) {
         ResponseEntity<?> response = libraryService.getLibraryById(id);
         return response;
     }

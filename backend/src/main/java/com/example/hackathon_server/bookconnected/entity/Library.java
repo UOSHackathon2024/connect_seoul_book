@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.sql.Time;
+
 @Entity
 @Setter
 @Getter
@@ -30,4 +32,22 @@ public class Library {
 
     @Column
     private Double latitude;
+
+    @Column
+    private Time startTimeDay;
+
+    @Column
+    private Time endTimeDay;
+
+    @Column
+    private Time startTimeWeekend;
+
+    @Column
+    private Time endTimeWeekend;
+
+    @Column
+    private Time startTimeHoliday;
+
+    @Column
+    private Time endTimeHoliday;
 }
