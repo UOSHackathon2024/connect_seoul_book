@@ -33,7 +33,7 @@ public class Program {
     private Date endProgram;
 
     @Column
-    private Date acceptProgram;
+    private Date acceptStart;
 
     @Column
     private Date acceptEnd;
