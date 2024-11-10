@@ -28,8 +28,8 @@ default_args = {
 def workflow():
     
     db_conn_str = os.getenv('MYSQL_CONN_STR')
-    path_library_info_file = os.path.join(os.path.dirname(__file__), '../source/library_info.csv')
-    path_book_conn_info_file = os.path.join(os.path.dirname(__file__), '../source/book_connection_info.csv')
+    path_library_info_file = os.path.realpath(os.path.join(os.path.dirname(__file__), '../source/library_info.csv'))
+    path_book_conn_info_file = os.path.realpath(os.path.join(os.path.dirname(__file__), '../source/book_connection_info.csv'))
     
     task1 = DeleteOldInfo(
         db_conn_str=db_conn_str,

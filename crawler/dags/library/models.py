@@ -14,7 +14,8 @@ class Library:
         start_time_weekend: time,
         end_time_weekend: time,
         start_time_holiday: time,
-        end_time_holiday: time
+        end_time_holiday: time,
+        homepage_url:Optional[str] = None
     ):
         self.library_id: int = library_id
         self.library_name: str = library_name
@@ -27,6 +28,7 @@ class Library:
         self.end_time_weekend: time = end_time_weekend
         self.start_time_holiday: time = start_time_holiday
         self.end_time_holiday: time = end_time_holiday
+        self.homepage_url = homepage_url
 
     def __repr__(self):
         return (

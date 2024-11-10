@@ -50,4 +50,7 @@ public class Library {
 
     @Column
     private Time endTimeHoliday;
+
+    @Column
+    private String homepageUrl;
 }

@@ -54,17 +54,20 @@ class LibraryHook(BaseHook, LoggingMixin):
         
         df = df[[
             '시군구명', '도서관명', '위도', '경도', '소재지도로명주소', 
-            '평일운영시작시각', '평일운영종료시각', '토요일운영시작시각', '토요일운영종료시각', '공휴일운영시작시각', '공휴일운영종료시각'
+            '평일운영시작시각', '평일운영종료시각', '토요일운영시작시각', '토요일운영종료시각', '공휴일운영시작시각', '공휴일운영종료시각',
+            '홈페이지주소'
             ]] # '시군구명'
         
         df = df.dropna(subset = ['도서관명', '위도', '경도'])
         
+        df['홈페이지주소'] = df['홈페이지주소'].where(pd.notna(df['홈페이지주소']), None)
+        #df['홈페이지주소'] = df['홈페이지주소'].fillna(None)
+
         result = []
         
         size = len(df)
         for i in range(0, size):
             #data = df.iloc[i, 0]+df.iloc[i, 3]
-            
             #district = df.iloc[i, 0]
             lib = Library(
                 library_id = None,
@@ -77,7 +80,8 @@ class LibraryHook(BaseHook, LoggingMixin):
                 start_time_weekend = datetime.strptime(df.iloc[i, 7], "%H:%M").time(),
                 end_time_weekend = datetime.strptime(df.iloc[i, 8], "%H:%M").time(),
                 start_time_holiday = datetime.strptime(df.iloc[i, 9], "%H:%M").time(),
-                end_time_holiday = datetime.strptime(df.iloc[i, 10], "%H:%M").time()
+                end_time_holiday = datetime.strptime(df.iloc[i, 10], "%H:%M").time(),
+                homepage_url= df.iloc[i, 11]
             ) # this obj should be transformed as date types
             
             result.append(
@@ -107,7 +111,8 @@ class LibraryHook(BaseHook, LoggingMixin):
                         start_time_weekend,
                         end_time_weekend,
                         start_time_holiday,
-                        end_time_holiday
+                        end_time_holiday,
+                        homepage_url
                     )
                 VALUES(
                         :library_name, 
@@ -119,7 +124,8 @@ class LibraryHook(BaseHook, LoggingMixin):
                         :start_time_weekend,
                         :end_time_weekend,
                         :start_time_holiday,
-                        :end_time_holiday
+                        :end_time_holiday,
+                        :homepage_url
                     )
                 """),
                 batch

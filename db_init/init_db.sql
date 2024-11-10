@@ -12,7 +12,8 @@ CREATE TABLE library (
     start_time_weekend  TIME,
     end_time_weekend    TIME,
     start_time_holiday  TIME,
-    end_time_holiday    TIME
+    end_time_holiday    TIME,
+    homepage_url        VARCHAR(255)
 ) CHARSET=utf8;
 
 CREATE TABLE program (
