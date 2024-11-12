@@ -1,7 +1,7 @@
 # Connect Seoul Book - 서울도서이음
 This repository contains crawler and backend service of our project for UOS Hackathon 2024, Plankton.  
 Frontend repository is [here](https://github.com/UOSHackathon2024/frontend).  
-You can check the web service [here](https://bigwhale-6dd603a7a811.herokuapp.com/).  
+You can check the web service [here](https://uos-hackathon-static.vercel.app/).  
   
 <img src="img/service_screenshots.png" width="800px" />  
   
